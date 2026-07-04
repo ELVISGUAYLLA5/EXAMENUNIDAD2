@@ -1,0 +1,59 @@
+📝 Resumen del Aprendizaje (Lo que logré dominar)
+En este primer bloque pasamos de la estadística descriptiva básica al modelado probabilístico e inferencia estadística, conectando las matemáticas puras con la programación en Python.
+
+🔹 1. De la Descriptiva a la Probabilidad Axiomática
+Análisis Inicial: Consolidé conceptos de medidas de tendencia central, dispersión y frecuencias sobre tipos de datos específicos.
+
+Enfoques de Probabilidad: Aprendí a aplicar la asignación clásica, empírica y subjetiva.
+
+Teorema de Bayes: Aprendí a ajustar dependencias de eventos y aplicar Bayes para actualizar probabilidades basadas en condiciones previas (como fallos en sistemas de red usando problemas de Walpole).
+
+🔹 2. Variables Aleatorias y Momentos Estadísticos
+PMF vs. PDF: Comprendí la diferencia crítica entre variables discretas (Función de Masa de Probabilidad) y continuas (Función de Densidad de Probabilidad).
+
+Operadores Matemáticos: Aprendí a calcular analíticamente la Esperanza Matemática E[X] y la Varianza Var(X) como los cimientos fundamentales para evaluar tendencias y dispersión en modelos computacionales.
+
+🔹 3. El Poder de la Distribución Normal e Inferencia
+Campana de Gauss: Dominé la estandarización de variables (de X a Z) y el uso de tablas estadísticas.
+
+Teorema del Límite Central (TLC): Entendí cómo aproximar distribuciones binomiales a normales cuando el tamaño muestral crece.
+
+Inferencia Real: Ejecuté los primeros pasos de estimación de parámetros mediante Intervalos de Confianza (Z y T de Student), Pruebas de Hipótesis utilizando el valor-p (p-value), y análisis multigrupo con ANOVA de 1 factor.
+
+💻 Dificultades Algorítmicas Superadas (El "Reto Python")
+La teoría cobró sentido cuando tuvimos que traducirla a código ejecutable en Google Colab. Estos fueron mis principales retos técnicos y cómo los resolví de forma óptima:
+
+🚀 1. Simulación de Monte Carlo Eficiente (Semana 2)
+El Problema: Programar un script para simular 10,000 lanzamientos de dados para demostrar la probabilidad empírica. Al principio, usar bucles "for" nativos en Python ralentizaba drásticamente el entorno de ejecución.
+
+La Solución: Aprendí a usar la vectorización con NumPy. Entendí que generar una matriz completa de un solo golpe es infinitamente más eficiente que iterar paso a paso.
+
+Ejemplo de código implementado:
+import numpy as np
+lanzamientos = 10000
+simulacion = np.random.randint(1, 7, size=lanzamientos)
+frecuencias = np.bincount(simulacion)[1:]
+probabilidades_empiricas = frecuencias / lanzamientos
+
+🧮 2. Cálculo Manual de Momentos vs. NumPy (Semana 6)
+El Problema: Implementar funciones manuales en Python para calcular E[X] y Var(X) a partir de la definición matemática y compararlas con las funciones nativas de NumPy. Mapear la sumatoria discreta me generaba errores de dimensionalidad.
+
+La Solución: Diseñé un script que recibe arrays de valores y sus respectivas probabilidades, aplicando el producto punto (np.dot) para resolver la esperanza de forma limpia y elegante.
+
+Ejemplo de código implementado:
+valores = np.array([1, 2, 3, 4, 5, 6])
+probabilidades = np.array([1/6]*6)
+esperanza = np.dot(valores, probabilidades)
+varianza = np.dot(valores2, probabilidades) - (esperanza2)
+
+📉 3. Estandarización y Pruebas de Normalidad Automáticas (Semana 9)
+El Problema: Automatizar la estandarización de un dataset regional (de fuentes oficiales como el INEC o el GAD Loja) y evaluar si realmente seguía una distribución normal para poder aplicar inferencia paramétrica. No sabía cómo integrar las tablas Z impresas dentro del código.
+
+La Solución: Investigué la librería scipy.stats y aprendí a usar stats.norm.cdf() para reemplazar las tablas físicas, además de implementar gráficos Q-Q para validar visualmente el comportamiento de los datos antes de lanzar un test de hipótesis.
+
+🔍 Autoevaluación Crítica
+Metodologías Activas / Clase Invertida (Excelente): El modelado de eventos climáticos mediante videos y la preparación previa de la clase invertida me ayudó a digerir mejor la abstracción matemática.
+
+Programación y Simulación (Bueno): Logré dominar las librerías base, pero debo continuar mejorando la escritura de código limpio y optimizado sin abusar de estructuras iterativas pesadas.
+
+Inferencia Estadística (Por Mejorar): Mecánicamente sé lanzar las pruebas en Python, pero a veces dudo entre cuándo usar exactamente la distribución Z o la T de Student en muestras pequeñas. Necesito reforzar la teoría detrás del A/B Testi
